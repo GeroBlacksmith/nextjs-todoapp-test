@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import React from "react";
 
@@ -10,19 +11,25 @@ type TodoPageProps = Promise<{ id: string }>;
 async function TodoPage(props: { params: TodoPageProps }) {
   const { params } = props;
   const { id } = await params;
-  const response = await fetch("http://localhost:3000/api/todos", {
+  const headersList = headers();
+  
+  const host=(await headersList).get('host'); // to get domain
+  const response = await fetch(`http://${host}/api/todos`, {
     cache: "no-store",
     /* next: {
         revalidate: 15 // seconds
       } */
   });
-
   const data:{todos:{id:string, name:string}[]} = await response.json();
-  if(!data.todos.find((todo)=>todo.id===id)){
+  const todo = data.todos.find((todo)=>todo.id===id);
+  if(!todo){
     notFound();
   }
   
-  return <div>TodoPage {id}</div>;
+  return <div>
+    <p>ID: {todo.id}</p>
+    <p>NAME: {todo.name}</p>
+  </div>;
 }
 
 export default TodoPage;

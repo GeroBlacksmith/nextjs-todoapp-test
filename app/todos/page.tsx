@@ -6,8 +6,6 @@ async function TodosPage() {
   const headersList = headers();
   
   const host=(await headersList).get('host'); // to get domain
-  const nextUrl=(await headersList).get('next-url'); // to get url
-  console.log(host,nextUrl)
   const response = await fetch(`http://${host}/api/todos`, {
     cache: "no-store",
     /* next: {
