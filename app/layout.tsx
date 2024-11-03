@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
+import { Luckiest_Guy } from "next/font/google"
 import "./globals.css";
+import Navbar from "@/components/NavBar";
 
-const geistSans = localFont({
+/* const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
@@ -11,7 +13,12 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
-});
+}); */
+const luckiestGuy = Luckiest_Guy({
+  weight: "400",
+  subsets:['latin'],
+  variable:"--font-luckiest-guy"
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,8 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${luckiestGuy.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
