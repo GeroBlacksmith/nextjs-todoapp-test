@@ -1,9 +1,14 @@
 import DeleteTodo from "@/components/DeleteTodo";
 import Link from "next/link";
 import React from "react";
-
+import { headers } from 'next/headers';
 async function TodosPage() {
-  const response = await fetch("http://localhost:3000/api/todos", {
+  const headersList = headers();
+  
+  const host=(await headersList).get('host'); // to get domain
+  const nextUrl=(await headersList).get('next-url'); // to get url
+  console.log(host,nextUrl)
+  const response = await fetch(`http://${host}/api/todos`, {
     cache: "no-store",
     /* next: {
         revalidate: 15 // seconds

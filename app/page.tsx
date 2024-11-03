@@ -1,11 +1,8 @@
-export default function Home() {
-  return (
-    <main>
-      <h1>
+import { redirect } from "next/navigation";
 
-      Hello world!
-      </h1>
-      <p className="font-luckiestGuy">New font</p>
-    </main>
+export default function Home() {
+  redirect("/todos")
+  return (
+    <></>
   );
 }

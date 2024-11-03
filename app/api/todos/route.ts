@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 let todos = [
   { id: "1", name: "Get groceries" },
-  { id: "2", name: "DO homeworkt" },
+  { id: "2", name: "Do homework" },
   { id: "3", name: "Go to the gym" },
 ];
 
