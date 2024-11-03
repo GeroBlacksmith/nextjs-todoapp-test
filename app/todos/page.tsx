@@ -29,13 +29,13 @@ async function TodosPage() {
             >
               <td className="py-3 px-6">
                 <Link href={`/todos/${todo.id}`}>
-                <button>
-                  {todo.id}
-                  </button>
+                  <button>{todo.id}</button>
                 </Link>
-                </td>
+              </td>
               <td className="py-3 px-6">{todo.name}</td>
-              <td className="py-3 px-6"><DeleteTodo id={todo.id}/></td>
+              <td className="py-3 px-6">
+                <DeleteTodo id={todo.id} />
+              </td>
             </tr>
           ))}
         </tbody>

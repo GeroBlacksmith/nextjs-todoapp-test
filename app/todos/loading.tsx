@@ -1,8 +1,9 @@
+import LoadingBar from '@/components/Loading'
 import React from 'react'
 
 function Loading() {
   return (
-    <div>Loading...</div>
+   <LoadingBar />
   )
 }
 

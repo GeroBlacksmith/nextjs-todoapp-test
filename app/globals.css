@@ -2,3 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Contenedor de la barra de progreso */
+.progress-bar {
+    width: 100%;            /* Ancho de la barra */
+    height: 20px;           /* Altura de la barra */
+    background-color: #ddd; /* Color de fondo */
+    overflow: hidden;       /* Ocultar cualquier contenido desbordado */
+    /* Quitar bordes redondeados */
+}
+
+/* Barra de progreso con gradiente dinámico */
+.progress {
+    width: 100%;              /* Ancho de la animación */
+    height: 100%;
+    background: linear-gradient(90deg, #f0f0f0, #d3d3d3, #f0f0f0); /* Gradiente gris y blanco */
+    background-size: 200% 100%; /* Tamaño para crear el efecto de desplazamiento */
+    animation: loading 3s linear infinite;
+}
+
+/* Animación del gradiente */
+@keyframes loading {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+}

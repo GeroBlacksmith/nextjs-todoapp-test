@@ -11,6 +11,7 @@ function TodoErrorPage({error, reset} :{
 
     <p>Error page {error.message}</p>
     <Link href="/todos">Go back</Link>
+    <button onClick={reset}>Try again</button>
     </section>
   )
 }
